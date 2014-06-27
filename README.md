@@ -41,7 +41,7 @@ converter.convert('/opt/kittens.docx', '/opt/kittens.pdf',
 
 ## ChangeLog
 
-v1.8 - Unreleased
+v1.8 - 2014-06-28
 
 * Tests pass under buildout context
 * We can fill bookmarks, document properties and user fields of generated document

@@ -5,11 +5,11 @@ from setuptools import setup, find_packages
 setup(name='PyODConverter',
       version='1.8',
       author='PyODConverter contributors',
-      author_email='me@require.pm',
+      author_email='github@require.pm',
       description='Python package to automate document conversions using LibreOffice/OpenOffice.org',
       long_description="PyODConverter (for Python OpenDocument Converter) is a Python package that automates office document conversions using LibreOffice or OpenOffice.org.",
       license='GPL v3',
-      url='https://github.com/dieselpoweredkitten/pyodconverter',
+      url='https://github.com/tyrannosaurus/pyodconverter',
       packages=find_packages(),
       classifiers=[
           'Intended Audience :: Developers',
@@ -20,4 +20,4 @@ setup(name='PyODConverter',
           'Programming Language :: Python :: 3.3',
       ],
       platforms=['All'],
-      )
+)
