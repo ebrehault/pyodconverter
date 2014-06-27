@@ -50,7 +50,11 @@ v1.8 - 2014-06-28
 
 v1.7 - 2013-11-01
 
+* Python 3.3+ support
+* Add default arguments to paperSize and paperOrientation parameters
+
 v1.6 - 2013-06-05
+
 * Fix support to print all sheets
 * Fix parameters to initialize SOffice service
 
