@@ -9,7 +9,7 @@
 # - or any later version.
 #
 
-__version__ = "1.8"
+__version__ = "1.9"
 
 DEFAULT_OPENOFFICE_PORT = 2002
 
