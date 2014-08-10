@@ -3,6 +3,10 @@
 PyODConverter (for Python OpenDocument Converter) is a Python package that
 automates office document conversions using LibreOffice or OpenOffice.org.
 
+## Important note
+
+For more recent versions of LibreOffice (4.3.0+) you can use [pylokit](https://github.com/xrmx/pylokit).
+
 ## Setup
 
 PyODConverter requires LibreOffice/OpenOffice.org to be running as a service
@@ -101,5 +105,4 @@ v1.0.0 - 2008-05-05
 
 * __mirkonasato__ <mirko.nasato@gmail.com>
 * __marcelaraujo__ <admin@marcelaraujo.me>
-* __dieselpoweredkitten__ <me@require.pm>
 * __Thomas Desvenain__ <thomas.desvenain@gmail.com>
