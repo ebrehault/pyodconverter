@@ -297,7 +297,11 @@ class DocumentConverter:
         if not paperOrientation in PAPER_ORIENTATION_MAP:
             raise Exception("The paper orientation given doesn't exist.")
         else:
-            paperOrientation = PAPER_ORIENTATION_MAP[paperOrientation]
+            inputExt = self._getFileExt(inputFile)
+            if inputExt in ("ppt", "pptx", "opp"):
++               paperOrientation = PAPER_ORIENTATION_MAP["LANDSCAPE"]
++           else:
++               paperOrientation = PAPER_ORIENTATION_MAP[paperOrientation]
 
         inputUrl = self._toFileUrl(inputFile)
         outputUrl = self._toFileUrl(outputFile)
@@ -314,12 +318,6 @@ class DocumentConverter:
             document = self.desktop.loadComponentFromURL(inputUrl, "_blank", 0,
                                             self._toProperties(loadProperties))
         except Exception as error:
-            """
-            Just remainder:
-            com.sun.star.lang.IllegalArgumentException: Unsupported URL
-            is like 404 Not Found
-            """
-            print(error)
             raise DocumentConversionException(str(error))
         try:
             document.refresh()
