@@ -299,9 +299,9 @@ class DocumentConverter:
         else:
             inputExt = self._getFileExt(inputFile)
             if inputExt in ("ppt", "pptx", "opp"):
-+               paperOrientation = PAPER_ORIENTATION_MAP["LANDSCAPE"]
-+           else:
-+               paperOrientation = PAPER_ORIENTATION_MAP[paperOrientation]
+                paperOrientation = PAPER_ORIENTATION_MAP["LANDSCAPE"]
+            else:
+                paperOrientation = PAPER_ORIENTATION_MAP[paperOrientation]
 
         inputUrl = self._toFileUrl(inputFile)
         outputUrl = self._toFileUrl(outputFile)
