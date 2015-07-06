@@ -59,171 +59,176 @@ IMPORT_FILTER_MAP = {
 The filter options to export PDF files can be viewed on URL below
 http://wiki.openoffice.org/wiki/API/Tutorials/PDF_export#General_properties
 '''
-EXPORT_FILTER_MAP = {
-    "pdf": {
-        FAMILY_TEXT: {
-            "FilterName": "writer_pdf_Export",
-            "FilterData": {
-                "IsSkipEmptyPages": True
+try:
+    import uno
+    import com.sun.star.connection
+    EXPORT_FILTER_MAP = {
+        "pdf": {
+            FAMILY_TEXT: {
+                "FilterName": "writer_pdf_Export",
+                "FilterData": {
+                    "IsSkipEmptyPages": True
+                },
+                "Overwrite": True
             },
-            "Overwrite": True
-        },
-        FAMILY_WEB: {
-            "FilterName": "writer_web_pdf_Export",
-            "FilterData": {
-                "IsSkipEmptyPages": True
+            FAMILY_WEB: {
+                "FilterName": "writer_web_pdf_Export",
+                "FilterData": {
+                    "IsSkipEmptyPages": True
+                },
+                "Overwrite": True
             },
-            "Overwrite": True
-        },
-        FAMILY_SPREADSHEET: {
-            "FilterName": "calc_pdf_Export",
-            "FilterData": {
-                "IsSkipEmptyPages": True
+            FAMILY_SPREADSHEET: {
+                "FilterName": "calc_pdf_Export",
+                "FilterData": {
+                    "IsSkipEmptyPages": True
+                },
+                "Overwrite": True
             },
-            "Overwrite": True
-        },
-        FAMILY_PRESENTATION: {
-            "FilterName": "impress_pdf_Export",
-            "FilterData": {
-                "IsSkipEmptyPages": True
+            FAMILY_PRESENTATION: {
+                "FilterName": "impress_pdf_Export",
+                "FilterData": {
+                    "IsSkipEmptyPages": True
+                },
+                "Overwrite": True
             },
-            "Overwrite": True
+            FAMILY_DRAWING: {
+                "FilterName": "draw_pdf_Export",
+                "FilterData": {
+                    "IsSkipEmptyPages": True
+                },
+                "Overwrite": True
+            }
         },
-        FAMILY_DRAWING: {
-            "FilterName": "draw_pdf_Export",
-            "FilterData": {
-                "IsSkipEmptyPages": True
+        "html": {
+            FAMILY_TEXT: {
+                "FilterName": "HTML (StarWriter)",
+                "Overwrite": True
             },
-            "Overwrite": True
-        }
-    },
-    "html": {
-        FAMILY_TEXT: {
-            "FilterName": "HTML (StarWriter)",
-            "Overwrite": True
+            FAMILY_SPREADSHEET: {
+                "FilterName": "HTML (StarCalc)",
+                "Overwrite": True
+            },
+            FAMILY_PRESENTATION: {
+                "FilterName": "impress_html_Export",
+                "Overwrite": True
+            }
         },
-        FAMILY_SPREADSHEET: {
-            "FilterName": "HTML (StarCalc)",
-            "Overwrite": True
+        "odt": {
+            FAMILY_TEXT: {
+                "FilterName": "writer8",
+                "Overwrite": True
+            },
+            FAMILY_WEB: {
+                "FilterName": "writerweb8_writer",
+                "Overwrite": True
+            }
         },
-        FAMILY_PRESENTATION: {
-            "FilterName": "impress_html_Export",
-            "Overwrite": True
-        }
-    },
-    "odt": {
-        FAMILY_TEXT: {
-            "FilterName": "writer8",
-            "Overwrite": True
+        "doc": {
+            FAMILY_TEXT: {
+                "FilterName": "MS Word 97",
+                "Overwrite": True
+            }
         },
-        FAMILY_WEB: {
-            "FilterName": "writerweb8_writer",
-            "Overwrite": True
-        }
-    },
-    "doc": {
-        FAMILY_TEXT: {
-            "FilterName": "MS Word 97",
-            "Overwrite": True
-        }
-    },
-    "docx": {
-        FAMILY_TEXT: {
-            "FilterName": "MS Word 2007 XML",
-            "Overwrite": True
-        }
-    },
-    "rtf": {
-        FAMILY_TEXT: {
-            "FilterName": "Rich Text Format",
-            "Overwrite": True
-        }
-    },
-    "txt": {
-        FAMILY_TEXT: {
-            "FilterName": "Text",
-            "FilterOptions": "utf8",
-            "Overwrite": True
-        }
-    },
-    "ods": {
-        FAMILY_SPREADSHEET: {
-            "FilterName": "calc8",
-            "Overwrite": True
-        }
-    },
-    "xls": {
-        FAMILY_SPREADSHEET: {
-            "FilterName": "MS Excel 97",
-            "Overwrite": True
-        }
-    },
-    "csv": {
-        FAMILY_SPREADSHEET: {
-            "FilterName": "Text - txt - csv (StarCalc)",
-            "FilterOptions": "44,34,0",
-            "Overwrite": True
-        }
-    },
-    "odp": {
-        FAMILY_PRESENTATION: {
-            "FilterName": "impress8",
-            "Overwrite": True
-        }
-    },
-    "ppt": {
-        FAMILY_PRESENTATION: {
-            "FilterName": "MS PowerPoint 97",
-            "Overwrite": True
-        }
-    },
-    "pptx": {
-        FAMILY_PRESENTATION: {
-            "FilterName": "Impress MS PowerPoint 2007 XML",
-            "Overwrite": True
-        }
-    },
-    "swf": {
-        FAMILY_DRAWING: {
-            "FilterName": "draw_flash_Export",
-            "Overwrite": True
+        "docx": {
+            FAMILY_TEXT: {
+                "FilterName": "MS Word 2007 XML",
+                "Overwrite": True
+            }
         },
-        FAMILY_PRESENTATION: {
-            "FilterName": "impress_flash_Export",
-            "Overwrite": True
-        }
-    },
-    "png": {
-        FAMILY_PRESENTATION: {
-            "FilterName": "impress_png_Export",
-            "Overwrite": True
+        "rtf": {
+            FAMILY_TEXT: {
+                "FilterName": "Rich Text Format",
+                "Overwrite": True
+            }
         },
-        FAMILY_DRAWING: {
-            "FilterName": "draw_png_Export",
-            "Overwrite": True
-        }
-    },
-    "gif": {
-        FAMILY_PRESENTATION: {
-            "FilterName": "impress_gif_Export",
-            "Overwrite": True
+        "txt": {
+            FAMILY_TEXT: {
+                "FilterName": "Text",
+                "FilterOptions": "utf8",
+                "Overwrite": True
+            }
         },
-        FAMILY_DRAWING: {
-            "FilterName": "draw_gif_Export",
-            "Overwrite": True
-        }
-    },
-    "jpg": {
-        FAMILY_PRESENTATION: {
-            "FilterName": "impress_jpg_Export",
-            "Overwrite": True
+        "ods": {
+            FAMILY_SPREADSHEET: {
+                "FilterName": "calc8",
+                "Overwrite": True
+            }
         },
-        FAMILY_DRAWING: {
-            "FilterName": "draw_jpg_Export",
-            "Overwrite": True
+        "xls": {
+            FAMILY_SPREADSHEET: {
+                "FilterName": "MS Excel 97",
+                "Overwrite": True
+            }
+        },
+        "csv": {
+            FAMILY_SPREADSHEET: {
+                "FilterName": "Text - txt - csv (StarCalc)",
+                "FilterOptions": "44,34,0",
+                "Overwrite": True
+            }
+        },
+        "odp": {
+            FAMILY_PRESENTATION: {
+                "FilterName": "impress8",
+                "Overwrite": True
+            }
+        },
+        "ppt": {
+            FAMILY_PRESENTATION: {
+                "FilterName": "MS PowerPoint 97",
+                "Overwrite": True
+            }
+        },
+        "pptx": {
+            FAMILY_PRESENTATION: {
+                "FilterName": "Impress MS PowerPoint 2007 XML",
+                "Overwrite": True
+            }
+        },
+        "swf": {
+            FAMILY_DRAWING: {
+                "FilterName": "draw_flash_Export",
+                "Overwrite": True
+            },
+            FAMILY_PRESENTATION: {
+                "FilterName": "impress_flash_Export",
+                "Overwrite": True
+            }
+        },
+        "png": {
+            FAMILY_PRESENTATION: {
+                "FilterName": "impress_png_Export",
+                "Overwrite": True
+            },
+            FAMILY_DRAWING: {
+                "FilterName": "draw_png_Export",
+                "Overwrite": True
+            }
+        },
+        "gif": {
+            FAMILY_PRESENTATION: {
+                "FilterName": "impress_gif_Export",
+                "Overwrite": True
+            },
+            FAMILY_DRAWING: {
+                "FilterName": "draw_gif_Export",
+                "Overwrite": True
+            }
+        },
+        "jpg": {
+            FAMILY_PRESENTATION: {
+                "FilterName": "impress_jpg_Export",
+                "Overwrite": True
+            },
+            FAMILY_DRAWING: {
+                "FilterName": "draw_jpg_Export",
+                "Overwrite": True
+            }
         }
     }
-}
+except:
+    EXPORT_FILTER_MAP = {}
 
 PAGE_STYLE_OVERRIDE_PROPERTIES = {
     FAMILY_SPREADSHEET: {
